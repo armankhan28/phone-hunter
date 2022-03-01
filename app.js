@@ -37,7 +37,7 @@ const searchResult = data => {
                     <img src="${phone.image}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h4 class="text-center">${phone.phone_name}</h4>
-                        <h5 class="text-center">${phone.brand}</h5>
+                        <h5 class="text-center"><span class="fw-bold">Brand</span> : ${phone.brand}</h5>
                         <button onclick="moreInfo('${phone.slug}')" class="d-block m-auto btn btn-info text-white">Details</button>
                     </div>
                 </div>
@@ -55,5 +55,35 @@ const searchResult = data => {
      .then(data => showInfo(data.data))
  }
 
+ const showInfo = info => {
+    console.log(info);
+    const infoDetails = document.getElementById('info-details')
+    infoDetails.innerHTML = '';
+    const div = document.createElement('div')
+    div.classList.add('col')
+    div.innerHTML = `
+    <div class="card p-3 shadow-lg">
+    <img src="${info.image}" class="card-img-top img-fluid w-50 mx-auto" alt="...">
+    <div class="card-body">
+    <p class="card-title"> <span class="fw-bold">Brand</span> : ${info.brand}</p>
+    <p class="card-text"> <span class="fw-bold">Model</span> : ${info.name}</p>
+    <p class="card-text"> <span class="fw-bold">Chepset</span> : ${info.mainFeatures.chipSet}</p>
+    <p class="card-text"> <span class="fw-bold">Display</span> : ${info.mainFeatures.displaySize}</p>
+    <p class="card-text"> <span class="fw-bold">Memory</span> : ${info.mainFeatures.memory}</p>
+    <p class="card-text"> <span class="fw-bold">Sensor</span> : ${info.mainFeatures.sensors}</p>
+    <p class="card-text"> <span class="fw-bold">Release Date</span> : ${info.releaseDate}</p>
+    <p class="text-center text-info fw-bold">Others Informetion <br>    </p>
+    <p class="card-text"> <span class="fw-bold">Bluetooth</span> : ${info.others.Bluetooth}</p>
+    <p class="card-text"> <span class="fw-bold">GPS</span> : ${info.others.GPS}</p>
+    <p class="card-text"> <span class="fw-bold">NFC</span> : ${info.others.NFC}</p>
+    <p class="card-text"> <span class="fw-bold">Radio</span> : ${info.others.Radio}</p>
+    <p class="card-text"> <span class="fw-bold">USB</span> : ${info.others.USB}</p>
+    <p class="card-text"> <span class="fw-bold">WLAN</span> : ${info.others.WLAN}</p>
+    </div>
 
+        
+    </div>
+    `
+    infoDetails.appendChild(div)
+ }
 
