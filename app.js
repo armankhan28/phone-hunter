@@ -47,5 +47,13 @@ const searchResult = data => {
     })
 }
 
+// more info
+ const moreInfo = id => {
+     const url = `https://openapi.programming-hero.com/api/phone/${id}`
+     fetch(url)
+     .then(res => res.json())
+     .then(data => showInfo(data.data))
+ }
+
 
 
