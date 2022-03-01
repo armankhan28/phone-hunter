@@ -1,11 +1,9 @@
-
+    // search area 
 const searchPhone = () => {
     const searchField = document.getElementById('search-field');
     const searchText = searchField.value;
     // console.log(searchText);
     searchField.value = '';
-   
-     
     const url = ` https://openapi.programming-hero.com/api/phones?search=${searchText}`
     // console.log(url);
 
@@ -13,11 +11,12 @@ const searchPhone = () => {
         .then(res => res.json())
         .then(data => searchResult(data.data.slice(0, 20)))
 }
-
+    // search result
 const searchResult = data => {
     // console.log(data);
     const displaySearch = document.getElementById('search-result');
     displaySearch.textContent = '';
+
      // error handaling
      let error  = document.getElementById('error')
      if(data.length == 0){
@@ -54,7 +53,7 @@ const searchResult = data => {
      .then(res => res.json())
      .then(data => showInfo(data.data))
  }
-
+//  info details
  const showInfo = info => {
     console.log(info);
     const infoDetails = document.getElementById('info-details')
@@ -79,9 +78,7 @@ const searchResult = data => {
     <p class="card-text"> <span class="fw-bold">Radio</span> : ${info.others.Radio}</p>
     <p class="card-text"> <span class="fw-bold">USB</span> : ${info.others.USB}</p>
     <p class="card-text"> <span class="fw-bold">WLAN</span> : ${info.others.WLAN}</p>
-    </div>
-
-        
+    </div>  
     </div>
     `
     infoDetails.appendChild(div)
