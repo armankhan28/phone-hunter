@@ -66,18 +66,18 @@ const searchResult = data => {
     <div class="card-body">
     <p class="card-title"> <span class="fw-bold">Brand</span> : ${info.brand}</p>
     <p class="card-text"> <span class="fw-bold">Model</span> : ${info.name}</p>
-    <p class="card-text"> <span class="fw-bold">Chepset</span> : ${info.mainFeatures.chipSet}</p>
-    <p class="card-text"> <span class="fw-bold">Display</span> : ${info.mainFeatures.displaySize}</p>
+    <p class="card-text"> <span class="fw-bold">Chepset</span> : ${info.mainFeatures?.chipSet ??'not found '}
+    <p class="card-text"> <span class="fw-bold">Display</span> : ${info?.mainFeatures?.displaySize ??'not found'}</p>
     <p class="card-text"> <span class="fw-bold">Memory</span> : ${info.mainFeatures.memory}</p>
-    <p class="card-text"> <span class="fw-bold">Sensor</span> : ${info.mainFeatures.sensors}</p>
-    <p class="card-text"> <span class="fw-bold">Release Date</span> : ${info.releaseDate}</p>
+    <p class="card-text"> <span class="fw-bold">Sensor</span> : ${info?.mainFeatures?.sensors ??'Not found'}
+    <p class="card-text"> <span class="fw-bold">Release Date</span> : ${info.releaseDate ?? 'not found'}</p>
     <p class="text-center text-info fw-bold">Others Informetion <br>    </p>
-    <p class="card-text"> <span class="fw-bold">Bluetooth</span> : ${info.others.Bluetooth}</p>
-    <p class="card-text"> <span class="fw-bold">GPS</span> : ${info.others.GPS}</p>
-    <p class="card-text"> <span class="fw-bold">NFC</span> : ${info.others.NFC}</p>
-    <p class="card-text"> <span class="fw-bold">Radio</span> : ${info.others.Radio}</p>
-    <p class="card-text"> <span class="fw-bold">USB</span> : ${info.others.USB}</p>
-    <p class="card-text"> <span class="fw-bold">WLAN</span> : ${info.others.WLAN}</p>
+    <p class="card-text"> <span class="fw-bold">Bluetooth</span> : ${info.others?.Bluetooth ??'not found '}
+    <p class="card-text"> <span class="fw-bold">NFC</span> : ${info.others?.NFC ??'not found '}</p>
+    <p class="card-text"> <span class="fw-bold">Radio</span> : ${info.others?.Radio ??'not found '}</p>
+    <p class="card-text"> <span class="fw-bold">USB</span> : ${info.others?.USB ??'not found '}</p>
+    <p class="card-text"> <span class="fw-bold">WLAN</span> : ${info.others?.WLAN ??'not found '}</p>
+    <p class="card-text"> <span class="fw-bold">GPS</span> : ${info.others?.GPS ??'not found '}</p>
     </div>  
     </div>
     `
