@@ -1,9 +1,13 @@
-    // search area 
+  // search area 
 const searchPhone = () => {
     const searchField = document.getElementById('search-field');
     const searchText = searchField.value;
     // console.log(searchText);
     searchField.value = '';
+    // infoDetails empty
+    infoDetails = document.getElementById('info-details').textContent =''
+
+    // search API
     const url = ` https://openapi.programming-hero.com/api/phones?search=${searchText}`
     // console.log(url);
 
@@ -48,6 +52,8 @@ const searchResult = data => {
 
 // more info
  const moreInfo = id => {
+     document.body.scrollTop = 0;
+     document.documentElement.scrollTop = 0;
      const url = `https://openapi.programming-hero.com/api/phone/${id}`
      fetch(url)
      .then(res => res.json())
